@@ -1,12 +1,13 @@
 const app = require('express')();
 const dotenv= require('dotenv');
-const e = require('express');
+const service = require('./service/isprime');
+
 dotenv.config();
 
 const port = process.env.PORT;
 
 app.get('/isprime/:number', (req, res) => {
-    result = isNumberPrime(req.params.number);
+    result = service.isNumberPrime(req.params.number);
     res.send(result);
 });
 
