@@ -1,6 +1,7 @@
 process.on("message", message => {
     result = isNumberPrime(message.number);
     process.send(result);
+    process.exit(); // Never forget to kill the child process
 })
 
 
@@ -11,7 +12,7 @@ function isNumberPrime(number){
     isPrime = true;
 
     for(let i = 3; i < number; i++){
-        console.log(i);
+
         if(number % i === 0){
             endTime = new Date();
             isPrime = false;
